@@ -40,15 +40,35 @@ const Home = () => {
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             </nav>
-            <div className="flex-grow  flex items-center justify-center p-4  bg-[#2f5593]">
-                <div className="bg-[#ffffff] p-8 rounded-lg shadow-md">
-                <img src= "/images/air_w.png"  className="absolute bottom-10 left-10 h-50 w-50 " />
-                <div>
-                    <h2 className="text-2xl font-bold mb-4 text-center">Welcome to the AU Sticker Portal</h2>
-                    <p className="text-center"></p>
+            <div className="flex-grow flex flex-col gap-5 items-center justify-center p-4 h-[36.7rem] bg-[#2f5593]">
+                {/* <img src= "/images/air_w.png"  className="absolute bottom-10 left-10 h-50 w-50 " /> */}
+                <div className='bg-white rounded-lg w-[30rem] p-6  '>
+                    <h2 className="text-3xl font-bold text-center">Welcome to the AU Sticker Portal</h2>
+                </div>
+                <div className='bg-white rounded-lg flex flex-col gap-6 w-[30rem] p-4 text-center'>
+                    <h2 className="text-3xl font-bold  text-center border-b">What is AU Sticker Portal</h2>
+                    <p className="text-justify  text-md">
+                        The AU Vehicle Sticker Registration Portal is designed to streamline the process of obtaining vehicle access stickers for students and staff at the university. This portal offers a convenient and efficient way to register your vehicle, ensuring that only authorized vehicles are permitted on campus.
+                        Utilizing the AU Vehicle Sticker Registration Portal helps maintain a safe and orderly campus environment, benefiting the entire university community.
+                    </p>
+                    {loggedInUser && (
+                        <Link to='/form' className='bg-gradient-to-l rounded-md from-[#5AA4DA] to-[#525EE5] text-white p-4 text-xl font-semibold'>
+                            Register Your Vehicles Now!
+                        </Link>
+                    )}
+                    {admin && (
+                        <Link to='/admin' className='bg-gradient-to-l rounded-md from-[#5AA4DA] to-[#525EE5] text-white p-4'>
+                            Go to your Admin Portal
+                        </Link>
+                    )}
+
+                </div>
+                <div className="absolute top-[39rem]">
+                    <p className='text-white'>
+                        @CopyRights - Air University 2024
+                    </p>
                 </div>
             </div>
-        </div>
         </div>
     )
 }

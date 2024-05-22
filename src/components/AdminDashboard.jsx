@@ -34,7 +34,7 @@ const AdminDashboard = () => {
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             </nav>
-            <div className="h-[36.7rem] bg-blue-400 flex items-center justify-center">
+            <div className="h-[36.7rem] bg-[#4879c7] flex items-center justify-center">
                 <div className="rounded-md bg-black opacity-70 flex flex-col items-center gap-6 w-[60rem] h-[28rem] py-6">
                     <p className='text-white text-center text-xl font-semibold'>HERE YOU WILL FIND STUDENT FORMS FOR REGISTRATION</p>
                     <div className="rounded-md bg-white w-[18rem] p-3 flex flex-col gap-2">
