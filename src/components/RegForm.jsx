@@ -32,6 +32,7 @@ const RegForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const id = uuidV4();
     const time = Timestamp.fromDate(new Date());
     const mainDoc = doc(db, `stickerRequest/${loggedInMail}`);
@@ -53,6 +54,12 @@ const RegForm = () => {
     } catch (error) {
       console.log('Error submitting form:', error);
     }
+
+    
+    setDoc(mainDoc, docData);
+    setFirstName('');setLastName('');setSemester('');setRegId('');setVehicleModel('');setVehicleReg('');setOwnerCnic('');setLicenseNo('');
+    console.log('data updated')
+
   }
 
   return (
