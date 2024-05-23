@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useLocalContext } from '../context/context';
+import mySticker from './sticker'; // Assuming sticker.jsx is in the same directory
 import img2 from '../assets/banner2.jpg'
 
 
@@ -30,6 +31,10 @@ const Home = () => {
                         <>
                             <Link to='/form'>Registration Form</Link>
                             <span className='bg-white h-[2rem] w-[0.2rem]' />
+                            
+                            <Link to='/sticker'>My Sticker</Link>
+                            <span className='bg-white h-[2rem] w-[0.2rem]' />
+                            
                         </>
                     )}
                     {admin && (
@@ -41,7 +46,7 @@ const Home = () => {
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             </nav>
-            <div className="flex-grow flex flex-col gap-5 items-center justify-center p-4 h-[36.7rem] bg-[#2f5593]">
+            <div className="flex-grow flex flex-col gap-5 items-center justify-center p-4 h-[39rem] bg-[#4879c7]">
                 {/* <img src= "/images/air_w.png"  className="absolute bottom-10 left-10 h-50 w-50 " /> */}
                 <div className='bg-white rounded-lg w-[30rem] p-6  '>
                     <h2 className="text-3xl font-bold text-center">Welcome to the AU Sticker Portal</h2>
@@ -56,6 +61,8 @@ const Home = () => {
                         <Link to='/form' className='bg-gradient-to-l rounded-md from-[#5AA4DA] to-[#525EE5] text-white p-4 text-xl font-semibold'>
                             Register Your Vehicles Now!
                         </Link>
+
+                        
                     )}
                     {admin && (
                         <Link to='/admin' className='bg-gradient-to-l rounded-md from-[#5AA4DA] to-[#525EE5] text-white p-4'>
@@ -64,9 +71,14 @@ const Home = () => {
                     )}
 
                 </div>
-                <div className="absolute top-[39rem]">
+                        
+                        
+
+
+
+                <div className="absolute top-[41rem]">
                     <p className='text-white'>
-                        @CopyRights - Air University 2024
+                    © - 2024 Air University - All Rights Reserved 
                     </p>
                 </div>
             </div>

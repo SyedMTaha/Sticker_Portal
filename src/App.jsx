@@ -2,6 +2,7 @@ import LoginPage from './components/LoginPage';
 import RegForm from './components/RegForm';
 import AdminDashboard from './components/AdminDashboard';
 import Home from './components/Home';
+import  Sticker from './components/sticker';
 import { useLocalContext } from './context/context';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path='/form' element={<RegForm />} />
+          <Route path='/sticker' element={<Sticker />} />
 
         </Routes>
       </BrowserRouter>)

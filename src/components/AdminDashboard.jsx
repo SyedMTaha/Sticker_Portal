@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { auth } from '../firebase';
 import { signOut } from 'firebase/auth';
 import { useLocalContext } from '../context/context';
+import img3 from '../assets/sticker.png'
 
 const AdminDashboard = () => {
 
@@ -42,9 +43,16 @@ const AdminDashboard = () => {
                         <p className=''>Click to open Submitted Forms</p>
                         <button className='p-4 font-semibold text-white rounded-md bg-blue-400'>FORMS!</button>
                     </div>
+
+                    
                 </div>
             </div>
+                    
+
         </div>
+        
+
+
     )
 }
 
