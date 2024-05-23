@@ -33,8 +33,8 @@ const RegForm = () => {
     e.preventDefault();
     const id=uuidV4();
     const time=Timestamp.fromDate(new Date());
-    const mainDoc = doc(db, `stickerRequest/${loggedInMail}`);
-    const childDoc = doc(mainDoc, `requests/${id}`);
+    const mainDoc = doc(db, `stickerRequest/${id}`);
+    // const childDoc = doc(mainDoc, `requests/${id}`);
     const docData = {
       firstName:firstName,
       lastName:lastName,
@@ -43,9 +43,11 @@ const RegForm = () => {
       vehicleModel:vehicleModel,
       ownerCnic:ownerCnic,
       licenseNo:licenseNo,
+      status: false,
       requsetTime:time.seconds
     };
-    setDoc(childDoc, docData);
+    setDoc(mainDoc, docData);
+    setFirstName('');setLastName('');setSemester('');setRegId('');setVehicleModel('');setVehicleReg('');setOwnerCnic('');setLicenseNo('');
     console.log('data updated')
   }
 
