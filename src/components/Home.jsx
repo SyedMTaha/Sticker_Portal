@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useLocalContext } from '../context/context';
+import img2 from '../assets/banner2.jpg'
 
 
 
