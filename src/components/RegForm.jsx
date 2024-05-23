@@ -1,14 +1,24 @@
 import { signOut } from 'firebase/auth';
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLocalContext } from '../context/context';
-import { auth } from '../firebase';
+import db, { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-
+import { v4 as uuidV4 } from 'uuid';
+import { Timestamp, doc, setDoc } from 'firebase/firestore';
 
 const RegForm = () => {
 
-  const { loggedInUser, setLoggedInUser, } = useLocalContext();
+  const { loggedInUser, setLoggedInUser,loggedInMail } = useLocalContext();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [semester, setSemester] = useState('');
+  const [regId, setRegId] = useState('');
+  const [vehicleModel, setVehicleModel] = useState('');
+  const [vehicleReg, setVehicleReg] = useState('');
+  const [ownerCnic, setOwnerCnic] = useState('');
+  const [licenseNo, setLicenseNo] = useState('');
+
   const navigate = useNavigate();
   function handleLogout() {
     signOut(auth).then(() => {
@@ -17,6 +27,26 @@ const RegForm = () => {
     }).catch((error) => {
       console.log(error);
     });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const id=uuidV4();
+    const time=Timestamp.fromDate(new Date());
+    const mainDoc = doc(db, `stickerRequest/${loggedInMail}`);
+    const childDoc = doc(mainDoc, `requests/${id}`);
+    const docData = {
+      firstName:firstName,
+      lastName:lastName,
+      semester:semester,
+      regId:regId,
+      vehicleModel:vehicleModel,
+      ownerCnic:ownerCnic,
+      licenseNo:licenseNo,
+      requsetTime:time.seconds
+    };
+    setDoc(childDoc, docData);
+    console.log('data updated')
   }
 
   return (
@@ -42,38 +72,38 @@ const RegForm = () => {
             <div className="flex gap-4 w-full">
               <div className=" flex flex-col gap-2 w-1/2">
                 <label>FirstName:</label>
-                <input className='border-2 rounded-md h-[2rem]' type="text" />
+                <input value={firstName} onChange={(e) => setFirstName(e.target.value)} className='border-2 rounded-md h-[2rem]' type="text" />
               </div>
               <div className=" flex flex-col gap-2 w-1/2">
                 <label>LastName:</label>
-                <input className='border-2 rounded-md h-[2rem]' type="text" />
+                <input value={lastName} onChange={(e) => setLastName(e.target.value)} className='border-2 rounded-md h-[2rem]' type="text" />
               </div>
             </div>
             <div className="flex gap-10 w-full">
               <div className=" flex flex-col gap-2 w-1/2">
                 <label>Semester:</label>
-                <input className='border-2 rounded-md h-[2rem]' type="text" />
+                <input value={semester} onChange={(e) => setSemester(e.target.value)} className='border-2 rounded-md h-[2rem]' type="text" />
               </div>
               <div className=" flex flex-col sm:ml-[-1.3rem] gap-2 w-1/2">
                 <label>Registration ID:</label>
-                <input className='border-2 rounded-md h-[2rem]' type="text" />
+                <input value={regId} onChange={(e) => setRegId(e.target.value)} className='border-2 rounded-md h-[2rem]' type="text" />
               </div>
             </div>
             <div className="flex gap-4 w-full">
               <div className=" flex flex-col gap-2 w-1/2">
                 <label>Vehicle Model:</label>
-                <input className='border-2 rounded-md h-[2rem]' type="text" />
+                <input value={vehicleModel} onChange={(e) => setVehicleModel(e.target.value)} className='border-2 rounded-md h-[2rem]' type="text" />
               </div>
               <div className=" flex flex-col gap-2 w-1/2">
                 <label>Vehicle Reg#</label>
-                <input className='border-2 rounded-md h-[2rem]' type="text" />
+                <input value={vehicleReg} onChange={(e) => setVehicleReg(e.target.value)} className='border-2 rounded-md h-[2rem]' type="text" />
               </div>
             </div>
             <label>Owner CNIC:</label>
-            <input className='border-2 rounded-md h-[2rem]' type="text" />
+            <input value={ownerCnic} onChange={(e) => setOwnerCnic(e.target.value)} className='border-2 rounded-md h-[2rem]' type="text" />
             <label>License Number:</label>
-            <input className='border-2 rounded-md h-[2rem]' type="text" />
-            <button type='submit' className=' mt-2 rounded-md h-[3rem] font-bold text-white  bg-[#525EE5] hover:bg-[#3f48b1]' >Submit</button>
+            <input value={licenseNo} onChange={(e) => setLicenseNo(e.target.value)} className='border-2 rounded-md h-[2rem]' type="text" />
+            <button onClick={handleSubmit} type='submit' className=' mt-2 rounded-md h-[3rem] font-bold text-white  bg-[#525EE5] hover:bg-[#3f48b1]' >Submit</button>
             <button className="mt-2 rounded-md h-[3rem] font-bold text-white bg-red-600 hover:bg-red-700" onClick={() => navigate('/')}> Back </button>
           </form>
         </div>
