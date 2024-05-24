@@ -23,7 +23,7 @@ const AdminDashboard = () => {
     }
 
     useEffect(() => {
-        const mail = 'ahsan@students.au.edu.pk';
+        // const mail = 'ahsan@students.au.edu.pk';
         const stickerCollectionRef = collection(db, `stickerRequest`) ;
         const unsubscribe = onSnapshot(stickerCollectionRef, (querySnapshot) => {
             const documentsData = [];
@@ -49,15 +49,15 @@ const AdminDashboard = () => {
                 <div className="flex items-center gap-5">
                     {/*             
                 <span className='bg-white h-[2rem] w-[0.2rem]' /> */}
-                    <a href="">Approved Candidates</a>
-                    <span className='bg-white h-[2rem] w-[0.2rem]' />
+                    
+                    
                     <a href="">Registered Vehicles</a>
                     <span className='bg-white h-[2rem] w-[0.2rem]' />
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             </nav>
-            <div className="h-[36.7rem] bg-[#4879c7] flex items-center justify-center">
-                <div className="rounded-md bg-black opacity-70 flex flex-col items-center gap-6 w-[60rem] h-[28rem] py-6">
+            <div className="h-[37rem] bg-[#4879c7] flex items-center justify-center">
+                <div className="rounded-md bg-[#000000] opacity-100 flex flex-col items-center gap-6 w-[60rem] h-[28rem] py-6">
                     <p className='text-white text-center text-xl font-semibold'>HERE YOU WILL FIND STUDENT FORMS FOR REGISTRATION</p>
                     {/* <div className="rounded-md bg-white w-[18rem] p-3 flex flex-col gap-2">
                         <h1 className='font-semibold'>StudentsForm</h1>
@@ -76,6 +76,11 @@ const AdminDashboard = () => {
                     </div>
 
                     
+                </div>
+                <div className="absolute top-[39rem]">
+                    <p className='text-white'>
+                    © - 2024 Air University - All Rights Reserved 
+                    </p>
                 </div>
             </div>
                     

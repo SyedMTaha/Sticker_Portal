@@ -45,7 +45,8 @@ const RegForm = () => {
       vehicleModel: vehicleModel,
       ownerCnic: ownerCnic,
       licenseNo: licenseNo,
-      requestTime: time.seconds
+      requestTime: time.seconds,
+      vehicleReg: vehicleReg
     };
     try {
       await setDoc(childDoc, docData);
@@ -115,7 +116,7 @@ const RegForm = () => {
             <button type='submit' className=' mt-2 rounded-md h-[3rem] font-bold text-white  bg-[#525EE5] hover:bg-[#3f48b1]' >Submit</button>
             <button className="mt-2 rounded-md h-[3rem] font-bold text-white bg-red-600 hover:bg-red-700" onClick={() => navigate('/')}> Back </button>
           </form>
-          {formSubmitted && <p className="  font-bold pp-20 text-[#439c46]  text-center  mt-2 mb-5 text-base">Form Submitted Successfully</p>} {/* Conditionally render the success message */}
+          {formSubmitted && <p className="  font-bold pp-20 text-green-500  text-center  mt-2 mb-5 text-base">Form Submitted Successfully</p>} {/* Conditionally render the success message */}
         </div>
         <div className="absolute top-[47rem]">
           <p className='text-white'>
