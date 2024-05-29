@@ -1,3 +1,13 @@
+**Introduction:**
+I have developed a Vehicle Sticker Registration Portal for a University which will allow the students to apply for the vehicle parking sticker through online forms, this will allow them to save their time. It will also help to automate the registration process as well as it would be less burden on the registration team. This online portal will automate the whole process which will help students and registration team to save their time.
+
+**Problem Statement:**
+The manual registration process is inefficient, and time-consuming. We are aiming to resolve these problems with our solution of online registration process. It will also ensure better record keeping, data management and easy access to check status of their registration process.
+
+**Tools **& Technologies Used:**** 
+Frontend: React Backend: NodeJs Database: Firebase
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
